@@ -1,46 +1,45 @@
 #include <stdio.h>
 
-void print_space(int counter, int size);
+int main() {
+    int n = 8;
 
-void print_block(int counter);
+    //single right side solution
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (i + j < n - 1) {
+                printf(" ");
+            } else {
+                printf("#");
+            }
+        }
 
-int main()
-{
-    int i, size;
+        printf("\n");
+    }
 
-    printf("What is the size of your pyramid: ");
-    scanf("%d",&size);
+    //single left side solution
+    for (int i = 0; i < n; i++) {
+        for (int j = 0; j < n; j++) {
+            if (i + j > n - 1) {
+                printf("#");
+            }
+        }
 
-    for (i = 1; i <= size; i++)
+        printf("\n");
+    }
+
+    //Pyramid shaped
+    for( int i = 0; i < n; i++)
     {
-        print_space(i, size);
-
-        print_block(i);
-
-        printf(" ");
-
-        print_block(i);
-
+        for( int j = 0; j < 2*n + 2; j++)
+        {
+            if ( j == n || j == n+1 || i + j < n-1 || j>i+n+2)
+                printf(" ");
+            else
+                printf("#");
+        }
         printf("\n");
     }
 
     return 0;
 }
 
-void print_space(int counter, int size)
-{
-    do
-    {
-        printf(" ");
-        counter++;
-    } while (counter <= size);
-}
-
-void print_block(int counter)
-{
-    do
-    {
-        printf("#");
-        counter--;
-    } while (counter != 0);
-}
