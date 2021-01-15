@@ -16,8 +16,7 @@ int main() {
         printf("\n");
     }
 
-    //single left side solution
-    for (int i = 0; i < n; i++) {
+    /*single left side solution*/ for (int i = 0; i < n; i++) {
         for (int j = 0; j < n; j++) {
             if (i + j > n - 1) {
                 printf("#");
